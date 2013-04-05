@@ -1,0 +1,19 @@
+<resources>
+    <dimen name="appTextSize">20sp</dimen>
+    <dimen name="appTextSizeSmall">16sp</dimen>
+
+    <dimen name="logoTextSize">50sp</dimen>
+	<color name="logoFrontColor">#FFAAAAAA</color>
+	<color name="logoShadowColor">#FFFFFFFF</color>
+	
+	<color name="listCacheColorHint">#FFFFFFFF</color>
+	<color name="listDividerColor">#11000000</color>
+	<color name="greyBright">#FFBBBBBB</color>
+	<color name="grey">#FF888888</color>
+	
+	<dimen name="spaceSmall">10dp</dimen>
+	<dimen name="spaceMedium">20dp</dimen>
+	<dimen name="spaceBig">40dp</dimen>
+	
+	<dimen name="radiusSize">4dp</dimen>
+</resources>
