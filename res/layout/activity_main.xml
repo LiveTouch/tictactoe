@@ -1,11 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spaceMedium"
+        android:text="@string/app_name" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name" />
+        android:layout_marginLeft="@dimen/spaceMedium"
+        android:text="@string/find_player" />
 
-</RelativeLayout>
+    <ListView
+        android:id="@+id/playerList"
+        style="@style/WhiteRounded"
+        android:divider="@color/listDividerColor"
+        android:cacheColorHint="#FFFFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/spaceMedium" />
+
+</LinearLayout>
