@@ -2,7 +2,10 @@ package com.jcdecaux.jcdroid.tictactoe.event;
 
 import static com.jcdecaux.jcdroid.tictactoe.event.NewPlayer.State.BUSY;
 
-public class NewPlayer implements Comparable<NewPlayer> {
+import java.io.Serializable;
+
+public class NewPlayer implements Comparable<NewPlayer>, Serializable {
+    private static final long serialVersionUID = -3309674783385376677L;
 
     public static enum State {
         IDLE, BUSY

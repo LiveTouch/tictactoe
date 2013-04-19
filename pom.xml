@@ -15,12 +15,14 @@
 		<android-maven-plugin.version>3.5.0</android-maven-plugin.version>
 		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
 		<api.platform>16</api.platform>
+		<java.version>1.6</java.version>
 
 		<!-- Dependencies -->
-		<androidannotations.version>2.7</androidannotations.version>
+		<androidannotations.version>3.0-SNAPSHOT</androidannotations.version>
 		<android.version>4.1.1.4</android.version>
 		<nineoldandroids.version>2.4.0</nineoldandroids.version>
 		<otto.version>1.3.3</otto.version>
+		<base-adapter-helper.version>1.0.1-SNAPSHOT</base-adapter-helper.version>
 	</properties>
 
 	<dependencies>
@@ -31,13 +33,13 @@
 			<version>${android.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.googlecode.androidannotations</groupId>
+			<groupId>org.androidannotations</groupId>
 			<artifactId>androidannotations</artifactId>
 			<version>${androidannotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.googlecode.androidannotations</groupId>
+			<groupId>org.androidannotations</groupId>
 			<artifactId>androidannotations-api</artifactId>
 			<version>${androidannotations.version}</version>
 		</dependency>
@@ -52,9 +54,9 @@
 			<version>${otto.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.joanzap.android</groupId>
+			<groupId>com.joanzapata.android</groupId>
 			<artifactId>base-adapter-helper</artifactId>
-			<version>1.0.0</version>
+			<version>${base-adapter-helper.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -75,8 +77,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
