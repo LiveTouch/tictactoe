@@ -2,10 +2,18 @@
 
     <style name="AppTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
         <item name="android:windowBackground">@drawable/app_background</item>
-   		<item name="android:textSize">@dimen/appTextSize</item>
-   		<item name="android:cacheColorHint">@color/listCacheColorHint</item>
-   		<item name="android:textColor">@color/grey</item>
-   	</style>
+        <item name="android:textSize">@dimen/appTextSize</item>
+        <item name="android:cacheColorHint">@color/listCacheColorHint</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="DialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/app_background</item>
+        <item name="android:textSize">@dimen/appTextSize</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
     <style name="Logo">
         <item name="android:textColor">@color/logoFrontColor</item>
@@ -13,8 +21,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/spaceMedium</item>
-        <item name="android:shadowDx">3</item>
-        <item name="android:shadowDy">3</item>
+        <item name="android:shadowDx">5</item>
+        <item name="android:shadowDy">5</item>
         <item name="android:shadowRadius">0.01</item>
         <item name="android:shadowColor">@color/logoShadowColor</item>
     </style>
@@ -22,15 +30,39 @@
     <style name="WhiteRounded">
         <item name="android:background">@drawable/white_rounded</item>
     </style>
-    
+
     <style name="PlayerName">
-		<item name="android:textStyle">bold</item>        
+        <item name="android:textStyle">bold</item>
     </style>
-    
+
     <style name="PlayerState">
         <item name="android:textSize">@dimen/appTextSizeSmall</item>
         <item name="android:textColor">@color/greyBright</item>
-        <item name="android:gravity">right</item>  
+        <item name="android:gravity">right</item>
     </style>
-    
+
+    <style name="Progress" parent="@android:style/Widget.ProgressBar.Large.Inverse">
+        <item name="android:indeterminateDrawable">@drawable/progress_large_holo_inverse</item>
+    </style>
+
+    <style name="InGamePlayer">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/logoFrontColor</item>
+        <item name="android:textSize">@dimen/logoTextSize</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">0.01</item>
+        <item name="android:shadowColor">@color/logoShadowColor</item>
+    </style>
+
+    <style name="InGameScore">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/greyBright</item>
+        <item name="android:textSize">@dimen/logoTextSize</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">0.01</item>
+        <item name="android:shadowColor">@color/logoShadowColor</item>
+    </style>
+
 </resources>

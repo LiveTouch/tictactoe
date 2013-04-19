@@ -1,6 +1,9 @@
 package com.jcdecaux.jcdroid.tictactoe;
 
-import static com.jcdecaux.jcdroid.tictactoe.event.NewPlayer.State.BUSY;
+import static com.jcdecaux.jcdroid.tictactoe.event.NewPlayer.State.IDLE;
+import static com.joanzapata.android.BaseAdapterHelper.get;
+import static com.nineoldandroids.animation.ObjectAnimator.ofFloat;
+import static java.lang.Math.max;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,14 +15,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.jcdecaux.jcdroid.tictactoe.event.NewPlayer;
-import com.joanzap.android.BaseAdapterHelper;
+import com.joanzapata.android.BaseAdapterHelper;
+import com.nineoldandroids.animation.AnimatorSet;
 
 public class PlayerListAdapter extends BaseAdapter {
 
-    private static final float ALPHA_DISABLED = 0.2f;
-    private static final float ALPHA_ENABLED = 1f;
+    private static final int ANIMATION_DELAY = 160;
+    private static final int ANIMATION_DURATION = 400;
+
     private List<NewPlayer> players = new ArrayList<NewPlayer>();
-    private Context context;
+    private final Context context;
+    private int alreadyAnimatedItem = -1;
+    private long lastAnimationTime = 0;
 
     public PlayerListAdapter(Context context) {
         this.context = context;
@@ -28,17 +35,54 @@ public class PlayerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         NewPlayer player = getItem(position);
-        return BaseAdapterHelper.get(context, convertView, parent, R.layout.player_item)//
+        BaseAdapterHelper helper = get(context, //
+                convertView, parent, R.layout.player_item)//
                 .setText(R.id.playerName, player.identifier) //
-                .setText(R.id.playerState, player.state.toString()) //
-                .setAlpha(R.id.playerItem, //
-                        player.state == BUSY ? ALPHA_DISABLED : ALPHA_ENABLED) //
-                .getView();
+                .setText(R.id.playerState, player.state.toString());
+
+        // Animate view on first display
+        if (position > alreadyAnimatedItem) {
+            helper.setAlpha(R.id.playerItem, 0);
+            animate(helper.getView(), getNextDelay());
+            alreadyAnimatedItem = position;
+        }
+
+        return helper.getView();
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return getItem(position).state == IDLE;
+    }
+
+    /**
+     * Get the next delay to use for an animation so that animations smoothly
+     * come one after the other.
+     */
+    private synchronized long getNextDelay() {
+        long now = System.currentTimeMillis();
+        long delay = max(ANIMATION_DELAY - (now - lastAnimationTime), 0);
+        lastAnimationTime = now + delay;
+        return delay;
+    }
+
+    private void animate(View view, long delay) {
+        final AnimatorSet set = new AnimatorSet();
+        set.playTogether( //
+                ofFloat(view, "alpha", 0f, 1f), //
+                ofFloat(view, "translationY", -20, 0), //
+                ofFloat(view, "translationX", 500, 0), //
+                ofFloat(view, "scaleX", 2f, 1f), //
+                ofFloat(view, "scaleY", 2f, 1f) //
+        );
+        set.setDuration(ANIMATION_DURATION).setStartDelay(delay);
+        set.start();
     }
 
     public void addPlayer(NewPlayer newPlayerEvent) {
         players.add(newPlayerEvent);
         keepSorted();
+        notifyDataSetChanged();
     }
 
     @Override
@@ -59,4 +103,5 @@ public class PlayerListAdapter extends BaseAdapter {
     private void keepSorted() {
         Collections.sort(players);
     }
+
 }

@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/body_bg"
-    android:tileMode="repeat" />
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape>
+            <corners android:radius="@dimen/radiusSize" />
+            <solid android:color="#FFf7f7f7" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/radiusSize2"
+        android:left="@dimen/radiusSize2"
+        android:right="@dimen/radiusSize2"
+        android:top="@dimen/radiusSize2">
+        <bitmap
+            android:antialias="false"
+            android:filter="false"
+            android:src="@drawable/body_bg"
+            android:tileMode="repeat" />
+    </item>
+
+</layer-list>

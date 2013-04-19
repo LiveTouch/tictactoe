@@ -1,4 +1,10 @@
 <resources>
-	<string name="app_name">Tic Tac Toe!</string>
-	<string name="find_player">Find someone to play with</string>
+
+    <string name="app_name">Tic Tac Toe!</string>
+    <string name="find_player">Find someone to play with</string>
+    <string name="invite_player">Invite player</string>
+    <string name="inviting_player">Inviting player...</string>
+    <string name="you">YOU</string>
+    <string name="him">HIM</string>
+
 </resources>
