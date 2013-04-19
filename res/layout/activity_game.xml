@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.jcdecaux.jcdroid.tictactoe.font.RobotoTextView
+        android:id="@+id/title"
+        style="@style/Logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/spaceMedium"
+        android:text="@string/app_name" />
+
+    <!-- GRID -->
+
+    <GridView
+        android:id="@+id/grid"
+        style="@style/WhiteRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_margin="@dimen/spaceMedium"
+        android:gravity="center"
+        android:padding="@dimen/spaceSmall" >
+    </GridView>
+
+    <!-- Player info -->
+
+    <TextView
+        android:id="@+id/you"
+        style="@style/InGamePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/spaceMedium"
+        android:text="@string/you" />
+
+    <com.jcdecaux.jcdroid.tictactoe.font.RobotoTextView
+        android:id="@+id/youScore"
+        style="@style/InGameScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/you"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/spaceMedium" />
+
+    <com.jcdecaux.jcdroid.tictactoe.font.RobotoTextView
+        android:id="@+id/him"
+        style="@style/InGamePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/spaceMedium"
+        android:text="@string/him" />
+
+    <com.jcdecaux.jcdroid.tictactoe.font.RobotoTextView
+        android:id="@+id/himScore"
+        style="@style/InGameScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/him"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/spaceMedium" />
+
+</RelativeLayout>
