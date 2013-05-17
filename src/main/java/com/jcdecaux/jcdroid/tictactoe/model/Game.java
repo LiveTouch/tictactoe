@@ -34,7 +34,7 @@ public class Game {
 
     public void startNewGame() {
         if (state == PLAYING)
-            throw new IllegalArgumentException("Game already in progress");
+            throw new IllegalStateException("Game already in progress");
 
         state = PLAYING;
         gameboard = generateGameboard(GAMEBOARD_SIZE);
